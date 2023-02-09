@@ -16,7 +16,7 @@ def output_formatter(results): # it gonna convert those tuples of tupples to lis
 
 def scan():
     conn = get_db()
-    cursor = conn.execute("SELECT * FROM task WHERE is_active=1", ()) #implying soft delete only showing active
+    cursor = conn.execute("SELECT * FROM task WHERE is_active=1", ()) # implying soft delete only showing active
     results = cursor.fetchall()
     cursor.close()
     return output_formatter(results)
@@ -27,7 +27,7 @@ def select_by_id(pk): # pk = primary key
     cursor = conn.execute ("SELECT * FROM task WHERE id=?", (pk,)) 
     results = cursor.fetchall()
     cursor.close()
-    return output_formatter(results)
+    return output_formatter(results) # will convert tupple and tupple to list of dictionaries
 
 
 def insert(raw_data):
